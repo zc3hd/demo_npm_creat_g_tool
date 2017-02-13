@@ -1,0 +1,18 @@
+{
+  "name": "013-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./bin/ccg",
+  "bin": {
+    "cc-g": "./bin/ccg"
+  },
+  "dependencies": {
+    "commander": "^2.9.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "cc",
+  "license": "MIT"
+}
