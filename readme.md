@@ -97,6 +97,10 @@ module.exports = function (path) {
 
 ```
 
+#### 2.4 npm install . -g：
+
+* 发布之前一定要本地全局测试。
+
 ### 3.summary
 
 * 文件操作的基础模块那里使用相对路径：`fs.readFileSync(path, 'utf-8')`，就是相对于全局命令行工具所在的目录的相对路径。
