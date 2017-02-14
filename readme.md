@@ -1,6 +1,7 @@
-## npm 全局命令行工具生成
+# npm 全局命令行工具生成~c~
 
 ### 1.项目说明：
+
 * 此demo用于简单进行npm全局命令行工具的制作，用到commander
 * commander官方解释：Node.js命令行界面的完整解决方案，受Ruby的指挥官的启发。
 * [官方学习地址](https://www.npmjs.com/package/commander)
@@ -10,7 +11,7 @@
 
 #### 2.1 基本目录：
 
-![](./readme_Img/001.jpg)
+![](./webapp/readme_Img/001.jpg)
 
 #### 2.2 目录说明：
 
@@ -59,7 +60,7 @@ else {
 
 * program.help()的提示：
 
-![](./readme_Img/002.jpg)
+![](./webapp/readme_Img/002.jpg)
 
 #### 2.3 lib/main.js文件：
 
@@ -101,9 +102,8 @@ module.exports = function (path) {
 
 * 发布之前一定要本地全局测试。
 
-### 3.summary
+### 3.总结
 
 * 文件操作的基础模块那里使用相对路径：`fs.readFileSync(path, 'utf-8')`，就是相对于全局命令行工具所在的目录的相对路径。
 
-### 4.MIT copyright by CC
 
