@@ -1,26 +1,26 @@
 # npm 全局命令行工具生成~c~
 
-### 1.项目说明：
+## 项目说明：
 
 * 此demo用于简单进行npm全局命令行工具的制作，用到commander
 * commander官方解释：Node.js命令行界面的完整解决方案，受Ruby的指挥官的启发。
 * [官方学习地址](https://www.npmjs.com/package/commander)
 * 项目的功能基本满足简单全局命令行工具的开发使用，想制作复杂的请忽略此文。
 
-### 2.start
+## start
 
-#### 2.1 基本目录：
+### 基本目录：
 
 ![](./webapp/readme_Img/001.jpg)
 
-#### 2.2 目录说明：
+### 目录说明：
 
 * bin目录下有ccg文件，此文件没有后缀名，是命令行工具的入口文件。（ccg是我自己随便来的名字，制作工具时按照自己的需求进行设置名字。）
 * lib目录下有main.js，此文件为主入口文件所依赖的基础模块。
 * package.json为生成工具前的配置文件。
 * 依据自己的需求进行docs、test和readme.md文件的补充。
 
-#### 2.3 bin/ccg文件：
+### bin/ccg文件：
 
 ```
 #!/usr/bin/env node
@@ -62,7 +62,7 @@ else {
 
 ![](./webapp/readme_Img/002.jpg)
 
-#### 2.3 lib/main.js文件：
+### lib/main.js文件：
 
 ```
 #!
@@ -73,12 +73,11 @@ module.exports = function (path) {
 }
 ```
 
-#### 2.3 package.json文件：
+### package.json文件：
 
-```
-#!
+```json
 {
-  "name": "013-test",
+  "name": "test",
   "version": "1.0.0",
   "description": "",
   "main": "./bin/ccg",
@@ -98,12 +97,15 @@ module.exports = function (path) {
 
 ```
 
-#### 2.4 npm install . -g：
+## npm install . -g：
 
 * 发布之前一定要本地全局测试。
 
-### 3.总结
+## 总结
 
 * 文件操作的基础模块那里使用相对路径：`fs.readFileSync(path, 'utf-8')`，就是相对于全局命令行工具所在的目录的相对路径。
 
+## 删除全局包名
+
+npm uninstall test -g
 
