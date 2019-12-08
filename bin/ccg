@@ -3,33 +3,58 @@
 /**
  * Module dependencies.
  */
-// 入口文件可以没有后缀名，里面用commaner，lib的索引
+
+
 var program = require('commander');
 // 读取package.json里面的版本号
 var version = require('../package.json').version;
-// 引入自己写的模块
-var read = require('../lib/main');
+// 进程
+var cmd = require('child_process');
+
+var HcGulp_github = "https://github.com/zc3hd/demo_gulp.git";
+// 引入自己写的模块，功能
+// var read = require('../lib/index.js');
+
+
+// 注册命令
 program
-	// 命令行工具注册版本号
-  .version('0.0.1')
-  // 命令行工具注册命令
-  .option('-p, --peppers', 'Add peppers')
-  // 使用方法的提示
+// 命令行工具注册版本号
+  .version(version, '-v, --version')
+  // 注册命令行：其中可以输入为路径地址
   .usage('<pathname>')
-  // 解析路径上有用的参数，非命令选项
+  // 命令行选项
+  // .option('i, init', '初始化hcGulp前端构造目录')
+  // 解析：命令行输入的路径参数
   .parse(process.argv);
 
-// 上面所有注册所有的命令和用法进行提示说明，在没有按照命令和使用说明--使用时
+
+
+program.help = function() {
+  console.log("*** Welcome AV8day ***");
+  console.log("");
+  console.log('Usage : ccg <pathname>  【初始化hcGulp架子到指定目录下】');
+  console.log(' More : hcGulp架子源码地址 https://github.com/zc3hd/demo_gulp/tree/master/gulp_001');
+}
+
+
+// 命令行：没有输入的路径参数
 if (program.args.length === 0) {
-	program.help();
-} 
-// 执行-p, --peppers命令的执行函数
-else if(program.peppers) {
-	console.log('  - pineapple');
+  program.help();
 }
-// 按照使用方法进行 文件路径为参数的执行函数
+// 有选项命令 i,init
+// else if (program.init) {
+//   // console.log('初始化hcGulp前端构造目录', program.args);
+// }
+// 命令行：有输入的路径参数，执行命令;
 else {
-  read(program.args[0]);
+  // read(program.args[0]);
+  cmd.exec(`git clone ${HcGulp_github} ${program.args[0]}`, function(error, stdout, stderr) {
+    if (error !== null) {
+      console.log('exec error: ' + error);
+    }
+    console.log(stdout, stderr)
+      // resolve();
+    console.log("hcGulp架子下载成功");
+
+  });
 }
-
-

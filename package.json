@@ -1,10 +1,10 @@
 {
-  "name": "013-test",
+  "name": "npm-g_test",
   "version": "1.0.0",
   "description": "",
   "main": "./bin/ccg",
   "bin": {
-    "cc-g": "./bin/ccg"
+    "ccg": "./bin/ccg"
   },
   "dependencies": {
     "commander": "^2.9.0"
